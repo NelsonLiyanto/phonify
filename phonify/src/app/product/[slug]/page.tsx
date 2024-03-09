@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               className="max-w-full rounded-2xl"
             />
             <div className="flex snap-mandatory snap-x overflow-x-scroll gap-x-2 max-w-max">
-              {detailedProduct.images.map((el) => (
+              {detailedProduct.image.map((el) => (
                 <img
                   key={el}
                   src={el}

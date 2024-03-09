@@ -34,5 +34,5 @@ export const getProductById = async (slug: string) => {
   const product = await productCollection.findOne({
     slug,
   });
-  return product;
+  return product as Product;
 };

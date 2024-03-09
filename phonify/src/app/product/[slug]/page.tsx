@@ -98,7 +98,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 <form
                   action={async () => {
                     "use server";
-                    await addWishlist(detailedProduct._id);
+                    // await addWishlist(detailedProduct._id);
                   }}
                 >
                   <button type="submit" className="btn btn-success text-white">

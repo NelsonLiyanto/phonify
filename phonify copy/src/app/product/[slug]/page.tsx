@@ -4,6 +4,7 @@ import Link from "next/link";
 import { addWishlist } from "../../../../db/models/wishlist";
 import { defaultResponse } from "@/app/api/users/route";
 import { redirect } from "next/navigation";
+import Image from "next/image";
 
 const fetchDetailed = async (slug: string) => {
   const URL = process.env.BASE_URL || "http://localhost:3000";
@@ -18,7 +19,7 @@ const fetchDetailed = async (slug: string) => {
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const { slug } = params;
-  const detailedProduct = (await fetchDetailed(slug)).data;
+  const detailedProduct = (await fetchDetailed(slug)).data as Product;
   const cookiesStore = cookies();
 
   const token = cookiesStore.get("token");
@@ -34,16 +35,18 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
         <div className="flex flex-col md:flex-row gap-10">
           <div className="basis-1/2 sm:basis-1/2 md:basis-1/2 xl:basis-1/4 flex flex-col gap-2">
-            <img
+            <Image
               src={detailedProduct?.thumbnail}
-              alt=""
+              alt="image"
               className="max-w-full rounded-2xl"
             />
+
             <div className="flex snap-mandatory snap-x overflow-x-scroll gap-x-2 max-w-max">
-              {detailedProduct?.images.map((el) => (
-                <img
-                  key={el}
+              {detailedProduct?.images.map((el, i) => (
+                <Image
+                  key={i}
                   src={el}
+                  alt=""
                   className="w-24 snap-always snap-start rounded-2xl"
                 />
               ))}

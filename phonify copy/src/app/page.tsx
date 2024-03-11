@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LimitProducts, Product } from "./types";
+import Image from "next/image";
 
 const fetchProductsLimited = async () => {
   const URL = process.env.BASE_URL || "http://localhost:3000";
@@ -23,16 +24,20 @@ export default async function Home() {
         className="flex-1 items-center hidden md:block"
       >
         <div className="flex flex-col w-screen bg-black items-center justify-center">
-          <img
-            src="https://radarbanyumas.disway.id/upload/f8888e446ec1b44206bb5930c6d404f6.jpg"
-            alt=""
+          <Image
+            src={
+              "https://radarbanyumas.disway.id/upload/f8888e446ec1b44206bb5930c6d404f6.jpg"
+            }
+            alt="image"
             className="h-96 w-full object-cover tint-black opacity-25"
           />
           <div className="absolute w-full flex justify-center">
             <div className="">
-              <img
-                src="https://radarbanyumas.disway.id/upload/f8888e446ec1b44206bb5930c6d404f6.jpg"
-                alt=""
+              <Image
+                src={
+                  "https://radarbanyumas.disway.id/upload/f8888e446ec1b44206bb5930c6d404f6.jpg"
+                }
+                alt="image"
                 className="h-80 object-contain rounded-2xl"
               />
             </div>
@@ -43,9 +48,11 @@ export default async function Home() {
       {/* banners */}
       <section id="banner-images" className=" items-center md:hidden">
         <div className="flex flex-col">
-          <img
-            src="https://radarbanyumas.disway.id/upload/f8888e446ec1b44206bb5930c6d404f6.jpg"
-            alt=""
+          <Image
+            src={
+              "https://radarbanyumas.disway.id/upload/f8888e446ec1b44206bb5930c6d404f6.jpg"
+            }
+            alt="image"
             className="max-h-80 w-full object-cover"
           />
         </div>
@@ -64,7 +71,7 @@ export default async function Home() {
               className="min-w-52 max-w-52 md:min-w-72 md:max-w-72  snap-awalys snap-center rounded-2xl border-2 border-gray-300"
             >
               <Link href={`/product/${el.slug}`}>
-                <img src={el.thumbnail} alt="" className="rounded-xl" />
+                <Image src={el.thumbnail} alt="image" className="rounded-xl" />
               </Link>
               <div className="p-5 ">
                 <h1 className="text-xl font-bold text-black">{el.name}</h1>

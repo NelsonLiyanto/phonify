@@ -4,6 +4,7 @@ import { defaultResponse } from "../api/users/route";
 import { Product } from "../types";
 import Link from "next/link";
 import { redirect, useRouter } from "next/navigation";
+import Image from "next/image";
 
 async function fetchProducts(searchQuery: string | undefined) {
   const URL = process.env.BASE_URL || "http://localhost:3000";
@@ -39,7 +40,7 @@ export default async function Page({
             className="min-w-52 max-w-52 md:min-w-72 md:max-w-72  snap-awalys snap-center rounded-2xl border-2 border-gray-300"
           >
             <Link href={`/product/${el.slug}`}>
-              <img src={el.thumbnail} alt="" className="rounded-xl" />
+              <Image src={el.thumbnail} alt="image" className="rounded-xl" />
             </Link>
             <div className="p-5 ">
               <h1 className="text-xl font-bold text-black">{el.name}</h1>

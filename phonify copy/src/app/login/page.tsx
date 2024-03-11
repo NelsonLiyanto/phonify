@@ -24,7 +24,7 @@ export default function Page() {
         />
         <button className="btn text-white rounded-full">Login</button>
         <div className="self-end flex flex-col items-end">
-          <p>Don't have an account?</p>
+          <p>{`Dont&apos;t have a account?`}</p>
           <Link href={"/register"} className="text-blue-500 cursor-pointer">
             Register here
           </Link>
